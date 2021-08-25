@@ -1,0 +1,2 @@
+# AuraComponentFileUploader
+Reusable file uploader
