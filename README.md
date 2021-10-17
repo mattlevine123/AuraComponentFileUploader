@@ -1,2 +1,2 @@
 # AuraComponentFileUploader
-Reusable file uploader
+Resuable Aura component if you need a file uploader that can be used to upload files before a record is created then create the link between the file and the destination record. My example is with the Case object because I primarily work on service cloud but this component should work in a variety of scenarios with minimal modifications. To use the example component embed it on an account Lightning record page. You'll be able to create a basic case with or without attachments
