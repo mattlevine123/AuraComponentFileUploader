@@ -1,0 +1,4 @@
+<aura:event type="COMPONENT" description="Carries file ids to parent components">
+    <aura:attribute name="attachmentIds" type="string[]" />
+    <aura:attribute name="delete" type="boolean" default="false"/>
+</aura:event>

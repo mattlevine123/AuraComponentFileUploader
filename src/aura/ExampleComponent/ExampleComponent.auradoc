@@ -1,0 +1,6 @@
+<aura:documentation>
+    <aura:description>Documentation</aura:description>
+    <aura:example name="ExampleName" ref="exampleComponentName" label="Label">
+        Example Component to demonstrate process of creating a case and linking to attachments after creation.
+    </aura:example>
+</aura:documentation>

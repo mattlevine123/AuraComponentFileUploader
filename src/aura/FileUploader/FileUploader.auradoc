@@ -1,0 +1,6 @@
+<aura:documentation>
+	<aura:description>Documentation</aura:description>
+	<aura:example name="ExampleName" ref="exampleComponentName" label="Label">
+		File uploader + display table meant to be embedded in aura components.
+	</aura:example>
+</aura:documentation>

@@ -1,0 +1,53 @@
+<aura:component controller="FileUploaderController" implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global">
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <aura:attribute name="files" type="ContentDocument[]" />
+    <aura:attribute name="recordId" type="string[]" />
+    <aura:attribute name="accept" type="List" />
+    <aura:attribute name="multiple" type="boolean" default="true" />
+    <aura:attribute name="Spinner" type="boolean" default="false" />
+    <aura:registerEvent name="FileUploaderEvent" type="c:FileUploaderEvent" />
+
+    <div class="slds">
+        <lightning:notificationsLibrary aura:id="notifLib"/>
+        <div class="contentbox">
+            <div class="slds-page-header header">Files</div>
+            <div class="slds-grid">
+                <div style="width:100%">
+                    <center>
+                        <lightning:fileUpload label =''
+                                              accept="{!v.accept}"
+                                              onuploadfinished="{!c.UploadFinished}" />
+                    </center>
+                </div>
+            </div><br/>
+            <div class="slds-form--compound" style="position:relative">
+                <table class="slds-table slds-table--bordered">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>Title</th>
+                            <th>File Type</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <aura:iteration items="{!v.files}" var="file">
+                            <tr>
+                                <td><a href="javascript:void(0)" id="{!file.Id}" onclick="{!c.delFiles}">Delete</a></td>
+                                <td><a href="" id="{!file.Id}" onclick="{!c.previewFile}">{!file.Title}</a></td>
+                                <td>{!file.FileType}</td>
+                            </tr>
+                        </aura:iteration>
+                    </tbody>
+                </table>
+                <aura:if isTrue="{!v.Spinner}">
+                    <div class="slds-spinner_container">
+                        <div class="slds-spinner slds-spinner--medium" aria-hidden="false" role="alert">
+                            <div class="slds-spinner__dot-a"></div>
+                            <div class="slds-spinner__dot-b"></div>
+                        </div>
+                    </div>
+                </aura:if>
+            </div>
+        </div>
+    </div>
+</aura:component>

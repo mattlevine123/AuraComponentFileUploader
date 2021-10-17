@@ -1,0 +1,45 @@
+<aura:component controller="exampleController" implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction">
+    <!--Attributes-->
+    <aura:attribute name="attacmentIds" type="string[]" />
+    <aura:attribute name="subject" type="string" />
+    <aura:attribute name="priorityVal" type="string"/>
+    <aura:attribute name="originVal" type="string" />
+    <!--Handlers-->
+    <aura:handler name="FileUploaderEvent" event="c:FileUploaderEvent" action="{!c.handleFileUpload}" />
+    
+    <lightning:card>
+        <div class="slds-grid slds-wrap">
+            <div class="slds-align_absolute-center">
+                <div class="slds-col slds-size_1-if-3">
+                    <lightning:input aura:id="subject" label="Subject" name="subject" value="{!v.subject}" />
+                </div>
+                <div class="slds-col slds-size_1-if-3">
+                    <lightning:select aura:id="priority" name="priority" label="Priority" required="true" onchange="{!c.priorityChange}"> 
+                        <option value="">--None--</option>
+                        <option value="High">High</option>
+                        <option value="Medium">Medium</option>
+                        <option value="Low">Low</option>
+                    </lightning:select>
+                </div>
+                <div class="slds-col slds-size_1-if-3">
+                    <lightning:select aura:id="origin" name="origin" label="Case Origin" required="true" onchange="{!c.originChange}">
+                        <option value="">--None--</option>
+                        <option value="Phone">Phone</option>
+                        <option value="Email">Email</option>
+                        <option value="Web">Web</option>
+                    </lightning:select>
+                </div>
+            </div>
+            <div class="slds-size_1-of-1">
+                <br/>
+                <c:FileUploader />
+                <br/>
+            </div>
+            <div class="slds-box slds-box_x-small slds-size_1-of-1 slds-p-top_small">
+                <div class="slds-float_right">
+                    <lightning:button aura:id="submit" name="submit" label="Create" onclick="{!c.handleClick}" />  
+                </div>
+            </div>
+        </div>
+    </lightning:card>
+</aura:component>
