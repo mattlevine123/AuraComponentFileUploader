@@ -6,9 +6,7 @@
         let subject = component.find('subject').get("v.value");
         let attachmentIds = component.get("v.attacmentIds");
         let acctId = component.get("v.recordId")
-        
         let action = component.get("c.crcase");
-        
         action.setParams({
             "origin" : origin,
             "priority" : priority,
@@ -28,7 +26,7 @@
                                  errors[0].message);
                     }
                 } else {
-                    
+                    console.log("UnknownError")
                 }
             }
         });
